@@ -1,0 +1,21 @@
+{
+  "hello" : "hey, ",
+  "doctor" : "Dr. ",
+  "settings": "Settings",
+  "home": "Home",
+  "chatBot": "Chat Bot",
+  "textOnly" : "Text Only",
+  "textWithImage" : "Text With Image",
+  "writeMessage" : "Enter your message here..",
+  "writeMessageSnackBar" : "Please, Enter your question",
+  "selectImage" : "Please, Select an image first",
+  "learnMore" : "Learn more",
+  "enrolNow" : "Enrol now!",
+  "startNow" : "Start now!",
+  "lecture" : "Lecture",
+  "presenter" : "Presented by : Dr. ",
+  "downloadPdf" : "Download pdf",
+  "quiz" : "Start quiz",
+  "coursePlaylist" : "Course Playlist",
+  "g": "Chat Bot"
+}
