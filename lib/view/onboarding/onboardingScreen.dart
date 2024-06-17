@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
-import 'package:pediatric_pt/auth/signup.dart';
 import 'package:pediatric_pt/core/theming/colors.dart';
+import 'package:pediatric_pt/view/auth/sign_up/signup.dart';
 
-import '../../auth/login.dart';
+import '../auth/login/login.dart';
 
 class onboardingScreen extends StatelessWidget {
   const onboardingScreen({super.key});

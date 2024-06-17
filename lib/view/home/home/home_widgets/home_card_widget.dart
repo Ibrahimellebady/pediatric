@@ -124,15 +124,25 @@ class homeCardWidget extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  bottom: -12,
-                  right: 8,
+                  bottom: -40,
+                  right: 0,
                   child: SizedBox(
-                    height: 170,
-                    width: 100,
+                    height: 180,
+                    width: 125,
                     child: Hero(
                       tag: 'find doctor',
-                      child: Image(
-                        image: AssetImage(cardImage),
+                      child: Container(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(15),
+                          ),
+                          child: Image(
+                            fit: BoxFit.fill,
+                            image: AssetImage(
+                              cardImage,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),

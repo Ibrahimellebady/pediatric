@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../controller/cubit/user_cubit/user_cubit.dart';
 import '../../../../../../core/shared/clip_path.dart';
 import '../../../../../../core/theming/colors.dart';
 
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key});
+  final List<Map<String, dynamic>> Quiz;
+  final int lecNumber;
+  final String lecDescription;
+  final String userId;
+  final String lecureName;
+
+  const QuizScreen(
+      {super.key,
+      required this.Quiz,
+      required this.lecNumber,
+      required this.lecDescription,
+      required this.userId,
+      required this.lecureName});
 
   @override
   _QuizScreenState createState() => _QuizScreenState();
@@ -15,7 +29,7 @@ class _QuizScreenState extends State<QuizScreen> {
   int _score = 0;
 
   void _answerQuestion(String selectedAnswer) {
-    if (_questions[_questionIndex]['correctAnswer'] == selectedAnswer) {
+    if (widget.Quiz[_questionIndex]['correctAnswer'] == selectedAnswer) {
       setState(() {
         _score++;
       });
@@ -28,7 +42,7 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _questionIndex < _questions.length
+      body: _questionIndex < widget.Quiz.length
           ? Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,8 +60,8 @@ class _QuizScreenState extends State<QuizScreen> {
                         const SizedBox(
                           height: 16,
                         ),
-                        const Text(
-                          'Lecture 1 Quiz',
+                        Text(
+                          'Lecture ${widget.lecNumber} quiz',
                           style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 24,
@@ -59,7 +73,7 @@ class _QuizScreenState extends State<QuizScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Basic of CP',
+                                '${widget.lecDescription}',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w300,
                                   fontStyle: FontStyle.italic,
@@ -67,7 +81,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                 ),
                               ),
                               Text(
-                                'Question ${_questionIndex + 1}/${_questions.length}',
+                                'Question ${_questionIndex + 1}/${widget.Quiz.length}',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   fontSize: 16,
@@ -84,12 +98,12 @@ class _QuizScreenState extends State<QuizScreen> {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    _questions[_questionIndex]['question'],
+                    widget.Quiz[_questionIndex]['question'],
                     style: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.w500),
                   ),
                 ),
-                ...(_questions[_questionIndex]['options'] as List<String>)
+                ...(widget.Quiz[_questionIndex]['options'] as List<String>)
                     .map((option) {
                   return GestureDetector(
                     onTap: () => _answerQuestion(option),
@@ -127,8 +141,31 @@ class _QuizScreenState extends State<QuizScreen> {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Your Score: $_score/${_questions.length}',
+                    'Your Score: $_score/${widget.Quiz.length}',
                     style: const TextStyle(fontSize: 20),
+                  ),
+                  Text(
+                    'Your Score: ${widget.userId}',
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                  Text(
+                    'Your Score: ${widget.lecureName}',
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                  Text(
+                    'Your Score: $_score/${widget.Quiz.length}',
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Call the method to update the user's quiz score
+                      context.read<UserCubit>().updateUserQuizScore(
+                            userId: widget.userId,
+                            lecureName: widget.lecureName,
+                            score: _score,
+                          );
+                    },
+                    child: const Text('Save Score'),
                   ),
                 ],
               ),
@@ -136,26 +173,3 @@ class _QuizScreenState extends State<QuizScreen> {
     );
   }
 }
-
-final List<Map<String, dynamic>> _questions = [
-  {
-    'question': 'What is the capital of France?',
-    'options': ['Paris', 'London', 'Berlin', 'Rome'],
-    'correctAnswer': 'Paris',
-  },
-  {
-    'question': 'What is the capital of Italy?',
-    'options': ['Paris', 'London', 'Berlin', 'Rome'],
-    'correctAnswer': 'Rome',
-  },
-  {
-    'question': 'What is the capital of England?',
-    'options': ['Paris', 'London', 'Berlin', 'Rome'],
-    'correctAnswer': 'London',
-  },
-  {
-    'question': 'is London the capital of England?',
-    'options': ['True', 'False'],
-    'correctAnswer': 'True',
-  },
-];

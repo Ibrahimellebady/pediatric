@@ -57,19 +57,19 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAPlgQLiqTJ5kUahY41E-4dKcpdSOWho2g',
-    appId: '1:287999801578:android:46640f57d5a2b59441ff93',
-    messagingSenderId: '287999801578',
-    projectId: 'athar-pediatric',
-    storageBucket: 'athar-pediatric.appspot.com',
+    apiKey: 'AIzaSyAPrhWQtWbZPKFrp9x59omEj3UPg2gmWkI',
+    appId: '1:1019520823152:android:ba1e3fc4a028ff0d9969b5',
+    messagingSenderId: '1019520823152',
+    projectId: 'pediatric-pt',
+    storageBucket: 'pediatric-pt.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBtqjomnGEiOe2rObZaBRwlP4McDIy4Wz8',
-    appId: '1:287999801578:ios:810f2bc62d7ee21841ff93',
-    messagingSenderId: '287999801578',
-    projectId: 'athar-pediatric',
-    storageBucket: 'athar-pediatric.appspot.com',
+    apiKey: 'AIzaSyA_hOoiSUdt9WdBMd-AUnLJjTYajuMMQVk',
+    appId: '1:1019520823152:ios:1adbb6ac94dcdb129969b5',
+    messagingSenderId: '1019520823152',
+    projectId: 'pediatric-pt',
+    storageBucket: 'pediatric-pt.appspot.com',
     iosBundleId: 'com.example.pediatricPt',
   );
 }

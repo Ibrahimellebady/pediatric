@@ -7,6 +7,7 @@ class lectureCardWidget extends StatelessWidget {
   final String imageUrl;
   final String videoUrl;
   final int lectureNum;
+  final String lectureName;
   final String description;
   final String presenter;
   final String fileUrl;
@@ -20,7 +21,8 @@ class lectureCardWidget extends StatelessWidget {
       required this.description,
       required this.presenter,
       required this.fileUrl,
-      required this.fileName});
+      required this.fileName,
+      required this.lectureName});
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +39,12 @@ class lectureCardWidget extends StatelessWidget {
                     presenter: presenter,
                     fileUrl: fileUrl,
                     fileName: fileName,
+                    lectureName: lectureName,
                   )),
         );
       },
       child: Container(
-        margin: const EdgeInsets.only(bottom: 12),
+        margin: const EdgeInsets.only(bottom: 12, right: 16, left: 16),
         height: 80,
         child: Card(
           child: Row(

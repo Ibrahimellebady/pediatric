@@ -43,7 +43,7 @@ class _TextOnlyState extends State<TextOnly> {
       setState(() {
         loading = false;
         textChat.add({
-          "role": "Ibrahim Ellebady",
+          "role": "Athar Bot",
           "text": value.text,
         });
       });
@@ -52,7 +52,7 @@ class _TextOnlyState extends State<TextOnly> {
       setState(() {
         loading = false;
         textChat.add({
-          "role": "Ibrahim Ellebady",
+          "role": "Athar Bot",
           "text": error.toString(),
         });
       });

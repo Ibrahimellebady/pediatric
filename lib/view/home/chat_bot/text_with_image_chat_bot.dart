@@ -51,14 +51,14 @@ class _TextWithImageState extends State<TextWithImage> {
       setState(() {
         loading = false;
         textAndImageChat
-            .add({"role": "Ibrahim Magid", "text": value.text, "image": ""});
+            .add({"role": "Athar Bot", "text": value.text, "image": ""});
       });
       scrollToTheEnd();
     }).onError((error, stackTrace) {
       setState(() {
         loading = false;
-        textAndImageChat.add(
-            {"role": "Ibrahim Magid", "text": error.toString(), "image": ""});
+        textAndImageChat
+            .add({"role": "Athar Bot", "text": error.toString(), "image": ""});
       });
       scrollToTheEnd();
     });
@@ -123,7 +123,8 @@ class _TextWithImageState extends State<TextWithImage> {
                     child: TextField(
                       controller: _textController,
                       decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.only(left: 8, bottom: 8),
+                        contentPadding:
+                            const EdgeInsets.only(left: 8, bottom: 8),
                         hintText: S.of(context).writeMessage,
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
